@@ -6,40 +6,40 @@
 #    By: angkim <angkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 09:30:19 by angkim            #+#    #+#              #
-#    Updated: 2019/04/22 12:20:00 by angkim           ###   ########.fr        #
+#    Updated: 2019/05/04 11:55:10 by angkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
- 
-CFLAGS = -Wall -Werror -Wextra -I ./includes/ -o
 
-LIB = libft/
+SRCS =	libft/libft.a \
+		main.c \
+		read.1.c \
+		solve.c
 
-COMPL = make -C $(LIB) re
+OBJS = $(SRCS:%.c=%.o)
 
-COMPLC = make -C $(LIB) clean
+INC = fillit.h
 
-COMPLF = make -C $(LIB) fclean
+CFLAGS = -Wall -Werror -Wextra 
 
-SRC = src/
-
-SRCS =  $(LIB)libft.a \
-		$(SRC)main.c \
-		$(SRC)read.c
-
-# OBJS = $(SRCS:%.c=%.o)
+LIB_DIR = libft
 
 all: $(NAME)
 
 $(NAME):
-	
-	gcc $(CFLAGS) $(NAME) $(SRCS)
+	make -C $(LIB_DIR) re
+	gcc $(CFLAGS) -I $(INC) -o $(NAME) $(SRCS)
 
 clean:
+	make -C $(LIB_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
+	make -C $(LIB_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
+	make -C $(LIB_DIR) re
+
+.PHONY: all clean fclean re
