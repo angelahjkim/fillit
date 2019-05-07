@@ -6,7 +6,7 @@
 #    By: angkim <angkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 09:30:19 by angkim            #+#    #+#              #
-#    Updated: 2019/05/04 11:55:10 by angkim           ###   ########.fr        #
+#    Updated: 2019/05/07 11:22:55 by angkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIB_DIR = libft
 all: $(NAME)
 
 $(NAME):
-	make -C $(LIB_DIR) re
+	make -C $(LIB_DIR)
 	gcc $(CFLAGS) -I $(INC) -o $(NAME) $(SRCS)
 
 clean:
