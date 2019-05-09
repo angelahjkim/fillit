@@ -6,7 +6,7 @@
 #    By: angkim <angkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 21:20:28 by angkim            #+#    #+#              #
-#    Updated: 2019/05/04 11:50:21 by angkim           ###   ########.fr        #
+#    Updated: 2019/05/08 19:00:14 by angkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME):
-	gcc $(CFLAGS) -c $(SRCS)
+	gcc $(CFLAGS) -c $(SRCS) 
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 

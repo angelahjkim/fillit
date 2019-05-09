@@ -6,7 +6,7 @@
 /*   By: angkim <angkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:41:46 by angkim            #+#    #+#             */
-/*   Updated: 2019/05/08 16:41:55 by angkim           ###   ########.fr       */
+/*   Updated: 2019/05/08 18:55:35 by angkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,21 @@ int		check_shape(char *str)
 	if (sides == 6 || sides == 8)
 		return (1);
 	return (0);
+}
+
+/*
+** Checks the number of tetri structs we have in our list.
+*/
+
+int		ft_lstsize(t_list *list)
+{
+	int size;
+
+	size = 0;
+	while (list)
+	{
+		size++;
+		list = list->next;
+	}
+	return (size);
 }
