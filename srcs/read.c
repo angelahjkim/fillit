@@ -6,7 +6,7 @@
 /*   By: angkim <angkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:27:09 by angkim            #+#    #+#             */
-/*   Updated: 2019/05/08 18:48:50 by angkim           ###   ########.fr       */
+/*   Updated: 2019/05/09 09:58:59 by angkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_list		*read_shapef(int fd)
 /*
 ** Our shape is read into a string containing 20 characters (of which only 4
 ** make up the shape itself). We need to create a 2D array that contains only
-** the characters that make up the shape. To make our 2D array, we use x and y
+** the characters that describe the shape. To make our 2D array, we use x and y
 ** coordinate values. We need to determine these values from our input string
 ** by recognizing that each "row" contains 5 bytes, and each multiple of 5
 ** represents the position in the next "row" of our shape's input structure.

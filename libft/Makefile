@@ -6,7 +6,7 @@
 #    By: angkim <angkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/18 21:20:28 by angkim            #+#    #+#              #
-#    Updated: 2019/05/08 19:00:14 by angkim           ###   ########.fr        #
+#    Updated: 2019/05/09 10:26:03 by angkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,15 +83,15 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME):
-	gcc $(CFLAGS) -c $(SRCS) 
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@gcc $(CFLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS) 
+	@rm -f $(OBJS) 
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all 
 

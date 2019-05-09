@@ -6,21 +6,21 @@
 /*   By: angkim <angkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:27:00 by angkim            #+#    #+#             */
-/*   Updated: 2019/05/08 18:56:59 by angkim           ###   ########.fr       */
+/*   Updated: 2019/05/09 10:07:14 by angkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /*
-** In our main function we first check to make sure one argument (input file)
-** is passed to our program - if not we return a message with usage info. Then
-** we open the input file and pass it to two checker functions. The second
-** simply checks that the file is valid and the first checks that the shapes
-** in the file are valid. If they are, we save each shape into a tetris struct
-** and save add them to our list. We then pass our list to functions that
-** create a grid where we place our shapes, see if they fit, and output the
-** solved grid. Finally, we free our grid and list structs.
+** The goal of our program is to create an algorithm that can arrange up to 26
+** tetrimino shapes into the smallest possible square. The program is passed
+** a file that contains each piece in a matrix of 4 x 4 characters with
+** matrices separated by an empty line.
+**
+** We first read the file, validate it and each of the shapes. Then we create
+** a struct that describes each shape and store it into a linked list which
+** we can use to then feed the shapes into our algorithm.
 */
 
 int		main(int ac, char **av)

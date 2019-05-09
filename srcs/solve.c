@@ -6,7 +6,7 @@
 /*   By: angkim <angkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:26:50 by angkim            #+#    #+#             */
-/*   Updated: 2019/05/08 18:49:07 by angkim           ###   ########.fr       */
+/*   Updated: 2019/05/09 10:07:28 by angkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 /*
 ** We know that each shape is composed of 4 pieces. To find the smallest
-** possible grid that could fit our shape(s) we decided to multiply the number
-** of shapes by 4 and then take the integer closest to the square root of the
-** result to be the grid length. If the shapes cannot be placed into the grid,
-** we increase the size until we get a large enough grid that can hold all the
+** possible grid that could fit our shape(s) we multiply the number of shapes
+** by 4 and then take the integer closest to the square root of the result to
+** be the grid length. If the shapes cannot be placed into the grid, we
+** increase the size until we get a large enough grid that can hold all the
 ** shapes.
 */
 
@@ -53,8 +53,8 @@ int		top_sqrt(int n)
 ** be removed (replaced with '.') from the grid and attempted to be placed in
 ** the next point on the grid. As each shape is successfully placed, the list
 ** will eventually reach its end (list = NULL) and return 1. If every point
-** on the grid is tried and not all shapes have been placed, the grid is too
-** small and the function will return 0.
+** on the grid is tried and a shape cannot be placed, the function will return
+** 0 indicating that the grid is not large enough.
 */
 
 int		solve_grid(t_grid *grid, t_list *list)
@@ -87,12 +87,12 @@ int		solve_grid(t_grid *grid, t_list *list)
 }
 
 /*
-** This function takes a tetri struct, grid, and x-y coordinates. Using the
-** 2D shape array of the tetrimino shape as well as its width and height to
+** This function takes a tetri struct, grid, and its x-y coordinates. Using the
+** 2D shape array of the tetrimino shape as well as its width and height, we
 ** check if the shape can be placed onto the grid, starting from the given
 ** x-y coordinates, in its entirety. If a piece of the shape overlaps with
-** a non-empty spot on the grid, the shape cannot be placed, and the function
-** returns 0.
+** a non-empty spot on the grid or goes beyond the boundaries of the grid, the
+** function returns 0, indicating that the shape cannot be placed.
 */
 
 int		placep_grid(t_tetri *tetri, t_grid *grid, int x, int y)
@@ -118,9 +118,9 @@ int		placep_grid(t_tetri *tetri, t_grid *grid, int x, int y)
 
 /*
 ** This function takes a tetri struct, the grid, an x-y point on the grid,
-** and the current letter value for the shape being read. It fills the grid,
-** starting from the x-y point passed, with the letter value replacing each '#'
-** of the tetri shape.
+** and the current letter value for the shape being read (or '.' if deleting a
+** shape from the gri). It fills the grid, starting from the x-y point passed
+** with the letter value replacing each '#' of the tetri shape (or '.'s).
 */
 
 void	fplace_grid(t_tetri *tetri, t_grid *grid, t_xy *pt, char val)
